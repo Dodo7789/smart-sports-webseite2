@@ -1,0 +1,107 @@
+ <!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Sports - Shop</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="main-header">
+  <div class="container">
+    <h1 class="logo"><a href="index.html">Smart Sports</a></h1>
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Startseite</a></li>
+        <li><a href="ueber-uns.html">Über uns</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+      </ul>
+    </nav>
+  </div>
+</header> 
+
+<main>
+
+  <!-- PRODUKTE -->
+  <section id="shopSection" class="shop">
+    <h2>Produkte</h2>
+    <input type="text" id="searchInput" placeholder="Produkte suchen..." aria-label="Produktsuche" />
+    <div class="products-grid" id="productsGrid">
+      <!-- Produkte werden hier per JS eingefügt -->
+    </div>
+  </section>
+
+  <!-- WARENKORB -->
+  <section id="cartSection" class="cart">
+    <h2>Warenkorb</h2>
+    <div id="cartItems"></div>
+    <div class="cart-summary">
+      <p>Zwischensumme: <span id="subtotal">0.00 €</span></p>
+      <p>MwSt (19%): <span id="tax">0.00 €</span></p>
+      <p>Versandkosten: <span id="shipping">0.00 €</span></p>
+      <p>Rabatt: <span id="discountAmount">0.00 €</span></p>
+      <p><strong>Gesamtsumme: <span id="total">0.00 €</span></strong></p>
+    </div>
+
+    <div class="discount-section">
+      <input type="text" id="discountCode" placeholder="Rabattcode eingeben" aria-label="Rabattcode" />
+      <button id="applyDiscountBtn">Anwenden</button>
+      <p id="discountMessage"></p>
+    </div>
+
+    <button id="checkoutBtn">Zur Kasse</button>
+  </section>
+
+  <!-- CHECKOUT -->
+  <section id="checkoutSection" style="display:none;">
+    <h2>Checkout</h2>
+    <form id="checkoutForm">
+      <label for="customerName">Name:</label>
+      <input type="text" id="customerName" name="customerName" required />
+      <label for="customerAddress">Adresse:</label>
+      <textarea id="customerAddress" name="customerAddress" rows="3" required></textarea>
+      <label for="customerEmail">E-Mail:</label>
+      <input type="email" id="customerEmail" name="customerEmail" required />
+      <button type="submit">Bestellung prüfen</button>
+    </form>
+  </section>
+
+  <!-- BESTELLÜBERSICHT -->
+  <section id="orderReviewSection" style="display:none;">
+    <h2>Bestellübersicht</h2>
+    <div id="orderSummary"></div>
+    <button id="submitOrderBtn">Bestellung abschicken</button>
+    <button id="cancelOrderBtn">Zurück</button>
+  </section>
+
+  <!-- BESTELLBESTÄTIGUNG -->
+  <section id="orderSuccessSection" style="display:none;">
+    <h2>Vielen Dank für Ihre Bestellung!</h2>
+    <p>Wir haben Ihre Bestellung erhalten und werden sie schnellstmöglich bearbeiten.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Smart Sports. Alle Rechte vorbehalten.</p>
+</footer>
+
+<script>
+(() => {
+  const products = [
+    // hier kommen deine Produkt-HTML-Strings rein
+  ];
+  const container = document.getElementById('productsGrid');
+  if (container) {
+    container.innerHTML = products.join('\n');
+  }
+})();
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
